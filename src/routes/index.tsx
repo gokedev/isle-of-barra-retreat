@@ -102,6 +102,34 @@ function Hero() {
 }
 
 function About() {
+  return AboutInner();
+}
+
+function TripAdvisor() {
+  return (
+    <section className="bg-[#0f1d3a] border-y border-white/10 py-6">
+      <a
+        href="https://www.tripadvisor.co.uk/Hotel_Review-g1546330-d293142-Reviews-Isle_Of_Barra_Beach_Hotel-Isle_of_Barra_Outer_Hebrides_Scotland.html"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="max-w-7xl mx-auto px-6 flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-white/90 hover:text-white transition-colors text-sm"
+      >
+        <span className="flex items-center gap-1 text-[#34e0a1]" aria-hidden="true">
+          {[0, 1, 2, 3].map((i) => (
+            <span key={i} className="inline-block w-3 h-3 rounded-full bg-[#34e0a1]" />
+          ))}
+          <span className="inline-block w-3 h-3 rounded-full bg-[#34e0a1]/40" />
+        </span>
+        <span className="font-serif text-lg">3.8 / 5</span>
+        <span className="text-white/60 uppercase tracking-widest text-xs">
+          720+ TripAdvisor reviews · Read what guests are saying →
+        </span>
+      </a>
+    </section>
+  );
+}
+
+function AboutInner() {
   return (
     <section id="about" className="py-28 bg-[#f4efe6]">
       <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
@@ -437,6 +465,7 @@ function Index() {
     <main className="bg-white">
       <Nav />
       <Hero />
+      <TripAdvisor />
       <About />
       <Rooms />
       <Dining />
