@@ -11,6 +11,12 @@ import dolphins from "@/assets/dolphins.jpg";
 import beachwalk from "@/assets/beachwalk.jpg";
 import eagle from "@/assets/eagle.jpg";
 import sunset from "@/assets/sunset.jpg";
+import galleryClouds from "@/assets/gallery-clouds.jpg";
+import galleryRoom from "@/assets/gallery-room.jpg";
+import galleryFood from "@/assets/gallery-food.jpg";
+import galleryMachair from "@/assets/gallery-machair.jpg";
+import galleryWhisky from "@/assets/gallery-whisky.jpg";
+import galleryBoat from "@/assets/gallery-boat.jpg";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -96,6 +102,34 @@ function Hero() {
 }
 
 function About() {
+  return AboutInner();
+}
+
+function TripAdvisor() {
+  return (
+    <section className="bg-[#0f1d3a] border-y border-white/10 py-6">
+      <a
+        href="https://www.tripadvisor.co.uk/Hotel_Review-g1546330-d293142-Reviews-Isle_Of_Barra_Beach_Hotel-Isle_of_Barra_Outer_Hebrides_Scotland.html"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="max-w-7xl mx-auto px-6 flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-white/90 hover:text-white transition-colors text-sm"
+      >
+        <span className="flex items-center gap-1 text-[#34e0a1]" aria-hidden="true">
+          {[0, 1, 2, 3].map((i) => (
+            <span key={i} className="inline-block w-3 h-3 rounded-full bg-[#34e0a1]" />
+          ))}
+          <span className="inline-block w-3 h-3 rounded-full bg-[#34e0a1]/40" />
+        </span>
+        <span className="font-serif text-lg">3.8 / 5</span>
+        <span className="text-white/60 uppercase tracking-widest text-xs">
+          720+ TripAdvisor reviews · Read what guests are saying →
+        </span>
+      </a>
+    </section>
+  );
+}
+
+function AboutInner() {
   return (
     <section id="about" className="py-28 bg-[#f4efe6]">
       <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
@@ -306,6 +340,12 @@ function Gallery() {
     { src: hotel, h: "row-span-2", alt: "Hotel from above" },
     { src: castle, h: "", alt: "Kisimul Castle" },
     { src: dining, h: "", alt: "Sunset restaurant" },
+    { src: galleryClouds, h: "", alt: "Dramatic Hebridean sky over the bay" },
+    { src: galleryRoom, h: "row-span-2", alt: "Sea-view bedroom interior" },
+    { src: galleryMachair, h: "", alt: "Machair wildflowers on the coast" },
+    { src: galleryFood, h: "", alt: "Fresh Barra seafood plate" },
+    { src: galleryWhisky, h: "", alt: "A quiet dram at sunset" },
+    { src: galleryBoat, h: "", alt: "Boat in turquoise bay water" },
   ];
   return (
     <section id="gallery" className="py-28 bg-white">
@@ -336,7 +376,8 @@ function Contact() {
         </h2>
         <p className="max-w-xl mx-auto text-white/75 mb-14">
           We'd love to hear from you. Rooms are limited and our season is short —
-          get in touch by phone or email and we'll take it from there.
+          we're open May through September, so contact us to check availability
+          for your dates and we'll take it from there.
         </p>
         <div className="grid md:grid-cols-3 gap-10 text-left md:text-center border-t border-white/10 pt-12">
           <div>
@@ -358,6 +399,18 @@ function Contact() {
         >
           Enquire by Email
         </a>
+        <div className="mt-16 overflow-hidden border border-white/10">
+          <iframe
+            title="Map of Isle of Barra Beach Hotel"
+            src="https://www.google.com/maps?q=Isle+of+Barra+Beach+Hotel,+Tangasdale+Beach,+Isle+of+Barra,+HS9+5XW&output=embed"
+            width="100%"
+            height="420"
+            style={{ border: 0, filter: "grayscale(0.2) contrast(0.95)" }}
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+            allowFullScreen
+          />
+        </div>
       </div>
     </section>
   );
@@ -365,8 +418,43 @@ function Contact() {
 
 function Footer() {
   return (
-    <footer className="bg-[#0a1428] text-white/60 py-10 text-center text-xs">
-      <p className="font-serif text-white text-lg mb-2">Isle of Barra Beach Hotel</p>
+    <footer className="bg-[#0a1428] text-white/60 py-12 text-center text-xs">
+      <p className="font-serif text-white text-lg mb-4">Isle of Barra Beach Hotel</p>
+      <div className="flex items-center justify-center gap-5 mb-5">
+        <a
+          href="https://www.facebook.com/IsleofBarraBeachHotel/"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Facebook"
+          className="hover:text-white transition-colors"
+        >
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M22 12a10 10 0 1 0-11.6 9.9V14.9H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.5h-1.3c-1.2 0-1.6.8-1.6 1.6V12h2.8l-.5 2.9h-2.3v7A10 10 0 0 0 22 12z" />
+          </svg>
+        </a>
+        <a
+          href="https://twitter.com/BarraBeachHotel"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Twitter"
+          className="hover:text-white transition-colors"
+        >
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M18.244 2H21.5l-7.5 8.57L23 22h-6.797l-5.32-6.96L4.8 22H1.54l8.02-9.17L1 2h6.97l4.81 6.36L18.244 2zm-1.19 18h1.88L7.05 4H5.06l11.994 16z" />
+          </svg>
+        </a>
+        <a
+          href="https://www.tripadvisor.co.uk/Hotel_Review-g1546330-d293142-Reviews-Isle_Of_Barra_Beach_Hotel-Isle_of_Barra_Outer_Hebrides_Scotland.html"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="TripAdvisor"
+          className="hover:text-white transition-colors"
+        >
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M12 8.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7zm-6 0a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7zm12 0a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7zM6 10a2 2 0 1 1 0 4 2 2 0 0 1 0-4zm12 0a2 2 0 1 1 0 4 2 2 0 0 1 0-4z" />
+          </svg>
+        </a>
+      </div>
       <p>© {new Date().getFullYear()} · Tangasdale Beach, Isle of Barra, Outer Hebrides</p>
     </footer>
   );
@@ -377,6 +465,7 @@ function Index() {
     <main className="bg-white">
       <Nav />
       <Hero />
+      <TripAdvisor />
       <About />
       <Rooms />
       <Dining />
