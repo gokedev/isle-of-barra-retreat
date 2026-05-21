@@ -1,16 +1,16 @@
 import { createFileRoute } from "@tanstack/react-router";
-import hero from "@/../assets/hero.jpg";
-import hotel from "@/../assets/hotel.jpg";
-import roomSea from "@/../assets/room-seaview.jpg";
-import roomOcean from "@/../assets/room-ocean.jpg";
-import roomCabin from "@/../assets/room-cabin.jpg";
-import dining from "@/../assets/dining.jpg";
-import bar from "@/../assets/bar.jpg";
-import castle from "@/../assets/castle.jpg";
-import dolphins from "@/../assets/dolphins.jpg";
-import beachwalk from "@/../assets/beachwalk.jpg";
-import eagle from "@/../assets/eagle.jpg";
-import sunset from "@/../assets/sunset.jpg";
+import hero from "@/assets/hero.jpg";
+import hotel from "@/assets/hotel.jpg";
+import roomSea from "@/assets/room-seaview.jpg";
+import roomOcean from "@/assets/room-ocean.jpg";
+import roomCabin from "@/assets/room-cabin.jpg";
+import dining from "@/assets/dining.jpg";
+import bar from "@/assets/bar.jpg";
+import castle from "@/assets/castle.jpg";
+import dolphins from "@/assets/dolphins.jpg";
+import beachwalk from "@/assets/beachwalk.jpg";
+import eagle from "@/assets/eagle.jpg";
+import sunset from "@/assets/sunset.jpg";
 
 export const Route = createFileRoute("/")({
   component: Index,
