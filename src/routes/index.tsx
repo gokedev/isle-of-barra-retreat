@@ -1,4 +1,6 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
+import Nav from "@/components/Nav";
+import Footer from "@/components/Footer";
 import hero from "@/assets/hero.jpg";
 import hotel from "@/assets/hotel.jpg";
 import roomSea from "@/assets/room-seaview.jpg";
@@ -22,37 +24,27 @@ export const Route = createFileRoute("/")({
   component: Index,
 });
 
-const NAVY = "#0f1d3a";
-const SAND = "#f4efe6";
-const SLATE = "#5b6470";
-
-function Nav() {
-  const links = [
-    ["About", "#about"],
-    ["Rooms", "#rooms"],
-    ["Dining", "#dining"],
-    ["Experience", "#experience"],
-    ["Gallery", "#gallery"],
-    ["Contact", "#contact"],
-  ];
+function TripAdvisor() {
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-[#0f1d3a]/70 border-b border-white/10">
-      <nav className="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
-        <a href="#top" className="font-serif text-white text-xl tracking-wide">
-          Isle of Barra <span className="italic text-white/70">Beach Hotel</span>
-        </a>
-        <ul className="hidden md:flex gap-8 text-sm text-white/80">
-          {links.map(([l, h]) => (
-            <li key={h}>
-              <a href={h} className="hover:text-white transition-colors">{l}</a>
-            </li>
+    <section className="bg-[#0f1d3a] border-y border-white/10 py-6">
+      <a
+        href="https://www.tripadvisor.co.uk/Hotel_Review-g1546330-d293142-Reviews-Isle_Of_Barra_Beach_Hotel-Isle_of_Barra_Outer_Hebrides_Scotland.html"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="max-w-7xl mx-auto px-6 flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-white/90 hover:text-white transition-colors text-sm"
+      >
+        <span className="flex items-center gap-1 text-[#34e0a1]" aria-hidden="true">
+          {[0, 1, 2, 3].map((i) => (
+            <span key={i} className="inline-block w-3 h-3 rounded-full bg-[#34e0a1]" />
           ))}
-        </ul>
-        <a href="#contact" className="hidden md:inline-block text-xs uppercase tracking-widest border border-white/40 text-white px-4 py-2 hover:bg-white hover:text-[#0f1d3a] transition-colors">
-          Book
-        </a>
-      </nav>
-    </header>
+          <span className="inline-block w-3 h-3 rounded-full bg-[#34e0a1]/40" />
+        </span>
+        <span className="font-serif text-lg">3.8 / 5</span>
+        <span className="text-white/60 uppercase tracking-widest text-xs">
+          720+ TripAdvisor reviews · Read what guests are saying →
+        </span>
+      </a>
+    </section>
   );
 }
 
@@ -80,18 +72,18 @@ function Hero() {
           uninterrupted ocean views, spectacular sunsets, and quiet Hebridean hospitality.
         </p>
         <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
-          <a
-            href="#contact"
+          <Link
+            to="/contact"
             className="bg-white text-[#0f1d3a] px-8 py-4 text-sm uppercase tracking-widest hover:bg-[#f4efe6] transition-colors"
           >
             Book a Room
-          </a>
-          <a
-            href="#rooms"
+          </Link>
+          <Link
+            to="/rooms"
             className="border border-white/70 text-white px-8 py-4 text-sm uppercase tracking-widest hover:bg-white hover:text-[#0f1d3a] transition-colors"
           >
             View Rooms
-          </a>
+          </Link>
         </div>
       </div>
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 text-white/60 text-xs tracking-widest uppercase animate-pulse">
@@ -102,36 +94,8 @@ function Hero() {
 }
 
 function About() {
-  return AboutInner();
-}
-
-function TripAdvisor() {
   return (
-    <section className="bg-[#0f1d3a] border-y border-white/10 py-6">
-      <a
-        href="https://www.tripadvisor.co.uk/Hotel_Review-g1546330-d293142-Reviews-Isle_Of_Barra_Beach_Hotel-Isle_of_Barra_Outer_Hebrides_Scotland.html"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="max-w-7xl mx-auto px-6 flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-white/90 hover:text-white transition-colors text-sm"
-      >
-        <span className="flex items-center gap-1 text-[#34e0a1]" aria-hidden="true">
-          {[0, 1, 2, 3].map((i) => (
-            <span key={i} className="inline-block w-3 h-3 rounded-full bg-[#34e0a1]" />
-          ))}
-          <span className="inline-block w-3 h-3 rounded-full bg-[#34e0a1]/40" />
-        </span>
-        <span className="font-serif text-lg">3.8 / 5</span>
-        <span className="text-white/60 uppercase tracking-widest text-xs">
-          720+ TripAdvisor reviews · Read what guests are saying →
-        </span>
-      </a>
-    </section>
-  );
-}
-
-function AboutInner() {
-  return (
-    <section id="about" className="py-28 bg-[#f4efe6]">
+    <section className="py-28 bg-[#f4efe6]">
       <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
         <div>
           <p className="uppercase tracking-[0.3em] text-xs text-[#5b6470] mb-6">A Place Apart</p>
@@ -206,7 +170,7 @@ function Rooms() {
     },
   ];
   return (
-    <section id="rooms" className="py-28 bg-white">
+    <section className="py-28 bg-white">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-20 max-w-2xl mx-auto">
           <p className="uppercase tracking-[0.3em] text-xs text-[#5b6470] mb-6">Accommodation</p>
@@ -239,15 +203,23 @@ function Rooms() {
                     <li key={s}>· {s}</li>
                   ))}
                 </ul>
-                <a
-                  href="#contact"
+                <Link
+                  to="/contact"
                   className="mt-6 inline-block text-sm text-[#0f1d3a] border-b border-[#0f1d3a] pb-1 self-start hover:opacity-70 transition-opacity"
                 >
                   Enquire to stay
-                </a>
+                </Link>
               </div>
             </article>
           ))}
+        </div>
+        <div className="text-center mt-12">
+          <Link
+            to="/rooms"
+            className="inline-block text-sm text-[#0f1d3a] border-b-2 border-[#0f1d3a] pb-1 uppercase tracking-widest hover:opacity-70 transition-opacity"
+          >
+            View all rooms →
+          </Link>
         </div>
       </div>
     </section>
@@ -256,7 +228,7 @@ function Rooms() {
 
 function Dining() {
   return (
-    <section id="dining" className="py-28 bg-[#0f1d3a] text-white">
+    <section className="py-28 bg-[#0f1d3a] text-white">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center max-w-2xl mx-auto mb-20">
           <p className="uppercase tracking-[0.3em] text-xs text-white/60 mb-6">Eat & Drink</p>
@@ -295,6 +267,14 @@ function Dining() {
             </div>
           </div>
         </div>
+        <div className="text-center mt-12">
+          <Link
+            to="/dining"
+            className="inline-block text-sm text-white/80 border-b-2 border-white/40 pb-1 uppercase tracking-widest hover:text-white transition-colors"
+          >
+            View full dining experience →
+          </Link>
+        </div>
       </div>
     </section>
   );
@@ -308,7 +288,7 @@ function Experience() {
     { img: castle, title: "Kisimul Castle", desc: "The medieval seat of Clan MacNeil sits on its own islet in Castlebay — a short drive away and well worth the boat trip." },
   ];
   return (
-    <section id="experience" className="py-28 bg-[#f4efe6]">
+    <section className="py-28 bg-[#f4efe6]">
       <div className="max-w-7xl mx-auto px-6">
         <div className="max-w-2xl mb-20">
           <p className="uppercase tracking-[0.3em] text-xs text-[#5b6470] mb-6">See & Do</p>
@@ -326,6 +306,14 @@ function Experience() {
               </div>
             </article>
           ))}
+        </div>
+        <div className="text-center mt-12">
+          <Link
+            to="/experience"
+            className="inline-block text-sm text-[#0f1d3a] border-b-2 border-[#0f1d3a] pb-1 uppercase tracking-widest hover:opacity-70 transition-opacity"
+          >
+            Explore all activities →
+          </Link>
         </div>
       </div>
     </section>
@@ -348,7 +336,7 @@ function Gallery() {
     { src: galleryBoat, h: "", alt: "Boat in turquoise bay water" },
   ];
   return (
-    <section id="gallery" className="py-28 bg-white">
+    <section className="py-28 bg-white">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center max-w-2xl mx-auto mb-16">
           <p className="uppercase tracking-[0.3em] text-xs text-[#5b6470] mb-6">Gallery</p>
@@ -361,6 +349,14 @@ function Gallery() {
             </div>
           ))}
         </div>
+        <div className="text-center mt-12">
+          <Link
+            to="/gallery"
+            className="inline-block text-sm text-[#0f1d3a] border-b-2 border-[#0f1d3a] pb-1 uppercase tracking-widest hover:opacity-70 transition-opacity"
+          >
+            View full gallery →
+          </Link>
+        </div>
       </div>
     </section>
   );
@@ -368,7 +364,7 @@ function Gallery() {
 
 function Contact() {
   return (
-    <section id="contact" className="py-28 bg-[#0f1d3a] text-white">
+    <section className="py-28 bg-[#0f1d3a] text-white">
       <div className="max-w-5xl mx-auto px-6 text-center">
         <p className="uppercase tracking-[0.3em] text-xs text-white/60 mb-6">Plan Your Stay</p>
         <h2 className="font-serif text-4xl md:text-6xl mb-8">
@@ -393,12 +389,12 @@ function Contact() {
             <p className="font-serif text-xl leading-snug">Tangasdale Beach<br />Isle of Barra · HS9 5XW</p>
           </div>
         </div>
-        <a
-          href="mailto:barrahotel@aol.com?subject=Room%20enquiry"
+        <Link
+          to="/contact"
           className="mt-14 inline-block bg-white text-[#0f1d3a] px-10 py-4 text-sm uppercase tracking-widest hover:bg-[#f4efe6] transition-colors"
         >
           Enquire by Email
-        </a>
+        </Link>
         <div className="mt-16 overflow-hidden border border-white/10">
           <iframe
             title="Map of Isle of Barra Beach Hotel"
@@ -413,50 +409,6 @@ function Contact() {
         </div>
       </div>
     </section>
-  );
-}
-
-function Footer() {
-  return (
-    <footer className="bg-[#0a1428] text-white/60 py-12 text-center text-xs">
-      <p className="font-serif text-white text-lg mb-4">Isle of Barra Beach Hotel</p>
-      <div className="flex items-center justify-center gap-5 mb-5">
-        <a
-          href="https://www.facebook.com/IsleofBarraBeachHotel/"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Facebook"
-          className="hover:text-white transition-colors"
-        >
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-            <path d="M22 12a10 10 0 1 0-11.6 9.9V14.9H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.5h-1.3c-1.2 0-1.6.8-1.6 1.6V12h2.8l-.5 2.9h-2.3v7A10 10 0 0 0 22 12z" />
-          </svg>
-        </a>
-        <a
-          href="https://twitter.com/BarraBeachHotel"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Twitter"
-          className="hover:text-white transition-colors"
-        >
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-            <path d="M18.244 2H21.5l-7.5 8.57L23 22h-6.797l-5.32-6.96L4.8 22H1.54l8.02-9.17L1 2h6.97l4.81 6.36L18.244 2zm-1.19 18h1.88L7.05 4H5.06l11.994 16z" />
-          </svg>
-        </a>
-        <a
-          href="https://www.tripadvisor.co.uk/Hotel_Review-g1546330-d293142-Reviews-Isle_Of_Barra_Beach_Hotel-Isle_of_Barra_Outer_Hebrides_Scotland.html"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="TripAdvisor"
-          className="hover:text-white transition-colors"
-        >
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-            <path d="M12 8.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7zm-6 0a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7zm12 0a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7zM6 10a2 2 0 1 1 0 4 2 2 0 0 1 0-4zm12 0a2 2 0 1 1 0 4 2 2 0 0 1 0-4z" />
-          </svg>
-        </a>
-      </div>
-      <p>© {new Date().getFullYear()} · Tangasdale Beach, Isle of Barra, Outer Hebrides</p>
-    </footer>
   );
 }
 
